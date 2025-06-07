@@ -14,6 +14,8 @@ namespace Player.Shooting
 
         private Transform _nearestEnemy;
 
+        public Transform GetNearestEnemy() => _nearestEnemy;
+
         private void Awake()
         {
             GetComponent<CircleCollider2D>().radius = _detectionRadius;
