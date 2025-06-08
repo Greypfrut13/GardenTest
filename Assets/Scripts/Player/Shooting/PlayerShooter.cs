@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
+using UnityEngine.UI;
 
 namespace Player.Shooting
 {
@@ -11,16 +13,28 @@ namespace Player.Shooting
         
         [Header("References")]
         [SerializeField] private Transform _firePoint;
-        [SerializeField] private Bullet _bulletPrefab;
         [SerializeField] private EnemyDetector _enemyDetector;
+        [SerializeField] private BulletPool _bulletPool;
+        [SerializeField] private Button _shootButton;
 
         private float _nextFireTime;
+
+        private void Start()
+        {
+            _shootButton.onClick.AddListener(Shoot);
+        }
 
         public void Shoot()
         {
             if (Time.time < _nextFireTime || _enemyDetector.GetNearestEnemy() == null)
                 return;
             
+            Bullet bullet = _bulletPool.GetBullet();
+            bullet.transform.SetPositionAndRotation(_firePoint.position, _firePoint.rotation);
+            
+            Vector2 direction = (_enemyDetector.GetNearestEnemy().position - _firePoint.position).normalized;
+            
+            bullet.Init(direction, _bulletSpeed, _damage, _bulletPool);
         }
     }
 }
