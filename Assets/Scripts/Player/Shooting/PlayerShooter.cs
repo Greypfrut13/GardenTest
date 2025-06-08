@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace Player.Shooting
@@ -13,7 +14,7 @@ namespace Player.Shooting
         
         [Header("References")]
         [SerializeField] private Transform _firePoint;
-        [SerializeField] private EnemyDetector _enemyDetector;
+        [FormerlySerializedAs("_enemyDetector")] [SerializeField] private PlayerDetector playerDetector;
         [SerializeField] private BulletPool _bulletPool;
         [SerializeField] private Button _shootButton;
         [SerializeField] private ParticleSystem _muzzleFlashEffect;
@@ -27,13 +28,13 @@ namespace Player.Shooting
 
         public void Shoot()
         {
-            if (Time.time < _nextFireTime || _enemyDetector.GetNearestEnemy() == null)
+            if (Time.time < _nextFireTime || playerDetector.GetNearestEnemy() == null)
                 return;
             
             Bullet bullet = _bulletPool.GetBullet();
             bullet.transform.SetPositionAndRotation(_firePoint.position, _firePoint.rotation);
             
-            Vector2 direction = (_enemyDetector.GetNearestEnemy().position - _firePoint.position).normalized;
+            Vector2 direction = (playerDetector.GetNearestEnemy().position - _firePoint.position).normalized;
             
             bullet.Init(direction, _bulletSpeed, _damage, _bulletPool);
             

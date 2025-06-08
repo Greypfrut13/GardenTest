@@ -134,6 +134,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MuzzleFlashEffect
       objectReference: {fileID: 0}
+    - target: {fileID: 1571987693881062608, guid: f6dac9a1ba690f641b4a875eaeea112f, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 1571987693881062615, guid: f6dac9a1ba690f641b4a875eaeea112f, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -192,7 +196,7 @@ GameObject:
   - component: {fileID: 278516220}
   - component: {fileID: 278516219}
   - component: {fileID: 278516221}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -283,7 +287,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 320168490}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: View
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -320,7 +324,7 @@ GameObject:
   m_Component:
   - component: {fileID: 338960501}
   - component: {fileID: 338960502}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: LeftArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -405,7 +409,7 @@ GameObject:
   m_Component:
   - component: {fileID: 452061913}
   - component: {fileID: 452061914}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -692,7 +696,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 732835394}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -725,7 +729,7 @@ GameObject:
   m_Component:
   - component: {fileID: 771649692}
   - component: {fileID: 771649693}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ShoulderRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -811,7 +815,12 @@ GameObject:
   - component: {fileID: 833042561}
   - component: {fileID: 833042560}
   - component: {fileID: 833042559}
+  - component: {fileID: 833042568}
   - component: {fileID: 833042562}
+  - component: {fileID: 833042566}
+  - component: {fileID: 833042565}
+  - component: {fileID: 833042564}
+  - component: {fileID: 833042563}
   m_Layer: 8
   m_Name: Zombie
   m_TagString: Untagged
@@ -887,6 +896,80 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHealth: 100
   _healthSlider: {fileID: 1161462582}
+--- !u!114 &833042563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 833042558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffe1e2cfcaeb4b8d93c3eada05998a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _attackRange: 1
+--- !u!114 &833042564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 833042558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e51cbd08dc8a414f833348fdaaf7ca8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 5
+  _stoppingDistance: 1
+--- !u!114 &833042565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 833042558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 215df6f5cd7e4f24811f993da86ce30d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _detectionRadius: 5
+  _playerLayer:
+    serializedVersion: 2
+    m_Bits: 128
+--- !u!114 &833042566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 833042558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bce376df40fe44d4b3f7638b1f6a2409, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _detector: {fileID: 833042565}
+  _movement: {fileID: 833042564}
+  _combat: {fileID: 833042563}
+--- !u!58 &833042568
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 833042558}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!1 &898098911
 GameObject:
   m_ObjectHideFlags: 0
@@ -896,7 +979,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 898098912}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RightArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1031,7 +1114,7 @@ GameObject:
   m_Component:
   - component: {fileID: 940162947}
   - component: {fileID: 940162948}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: LeftArm2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1115,7 +1198,7 @@ GameObject:
   m_Component:
   - component: {fileID: 943004408}
   - component: {fileID: 943004409}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RightLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1353,7 +1436,7 @@ GameObject:
   - component: {fileID: 1103994880}
   - component: {fileID: 1103994879}
   - component: {fileID: 1103994881}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Shooting
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1425,7 +1508,7 @@ MonoBehaviour:
   _damage: 10
   _bulletSpeed: 15
   _firePoint: {fileID: 732835394}
-  _enemyDetector: {fileID: 1103994879}
+  playerDetector: {fileID: 1103994879}
   _bulletPool: {fileID: 1541933883}
   _shootButton: {fileID: 1506135898}
   _muzzleFlashEffect: {fileID: 292993853}
@@ -1684,7 +1767,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1351124060}
   - component: {fileID: 1351124061}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RightArm2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1768,7 +1851,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1454644284}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Arms
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1802,7 +1885,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1497007771}
   - component: {fileID: 1497007772}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: LeftLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2036,7 +2119,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1541933882}
   - component: {fileID: 1541933883}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BulletPool
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2250,7 +2333,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1675413137}
   - component: {fileID: 1675413138}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2444,7 +2527,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1712491348}
   - component: {fileID: 1712491349}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: AK-74
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 namespace Player.Shooting
 {
     [RequireComponent(typeof(CircleCollider2D))]
-    public class EnemyDetector : MonoBehaviour
+    public class PlayerDetector : MonoBehaviour
     {
         [SerializeField] private float _detectionRadius;
         [SerializeField] private LayerMask _enemyLayer;
