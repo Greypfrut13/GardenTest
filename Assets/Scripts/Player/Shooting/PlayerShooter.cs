@@ -16,6 +16,7 @@ namespace Player.Shooting
         [SerializeField] private EnemyDetector _enemyDetector;
         [SerializeField] private BulletPool _bulletPool;
         [SerializeField] private Button _shootButton;
+        [SerializeField] private ParticleSystem _muzzleFlashEffect;
 
         private float _nextFireTime;
 
@@ -35,6 +36,8 @@ namespace Player.Shooting
             Vector2 direction = (_enemyDetector.GetNearestEnemy().position - _firePoint.position).normalized;
             
             bullet.Init(direction, _bulletSpeed, _damage, _bulletPool);
+            
+            _muzzleFlashEffect.Play();
         }
     }
 }

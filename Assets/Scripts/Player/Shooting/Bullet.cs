@@ -27,7 +27,6 @@ namespace Player.Shooting
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            Debug.Log("Bullet triggered");
             if (other.TryGetComponent<EnemyHealth>(out var enemyHealth))
             {
                 enemyHealth.TakeDamage(_damage);
