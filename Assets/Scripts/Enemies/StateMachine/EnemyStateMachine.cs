@@ -16,11 +16,6 @@ namespace Enemies
         
         private EnemyState _currentState;
 
-        private void Start()
-        {
-            
-        }
-
         private void Update()
         {
             UpdateState();
@@ -29,10 +24,15 @@ namespace Enemies
 
         private void UpdateState()
         {
-            if (!_detector.PlayerInRange)
+            if (_detector.Player == null || !_detector.PlayerInRange)
             {
                 SwitchState(EnemyState.Idle);
                 return;
+            }
+
+            if (!_combat.IsInitialized)
+            {
+                _combat.Init(_detector.Player);
             }
 
             _currentState = Vector2.Distance(transform.position, _detector.Player.position) <= _combat.AttackRange
@@ -50,6 +50,13 @@ namespace Enemies
                 case EnemyState.Chase:
                     _movement.SetTarget(_detector.Player);
                     _movement.MoveToTarget();
+                    break;
+                case EnemyState.Attack:
+                    _movement.Stop();
+                    if (_combat.CanAttack())
+                    {
+                        _combat.PerformAttack();
+                    }
                     break;
             }
         }

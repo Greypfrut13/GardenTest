@@ -194,8 +194,10 @@ GameObject:
   m_Component:
   - component: {fileID: 278516217}
   - component: {fileID: 278516220}
+  - component: {fileID: 278516223}
   - component: {fileID: 278516219}
   - component: {fileID: 278516221}
+  - component: {fileID: 278516222}
   m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
@@ -268,6 +270,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _movementSpeed: 5
   _joystick: {fileID: 1533429081}
+--- !u!114 &278516222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 278516216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4257fbb6ab3c4f7ba82520f854de7b0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!70 &278516223
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 278516216}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.019864172, y: -0.8621061}
+  m_Size: {x: 0.5556198, y: 2.7242122}
+  m_Direction: 0
 --- !u!198 &292993853 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 1571987693881062614, guid: f6dac9a1ba690f641b4a875eaeea112f, type: 3}
@@ -908,7 +938,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffe1e2cfcaeb4b8d93c3eada05998a9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _attackRange: 1
+  _attackRange: 1.5
+  _attackCoolDown: 2
+  _damage: 10
 --- !u!114 &833042564
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -921,7 +953,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e51cbd08dc8a414f833348fdaaf7ca8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 5
+  _speed: 2
   _stoppingDistance: 1
 --- !u!114 &833042565
 MonoBehaviour:
@@ -1436,7 +1468,7 @@ GameObject:
   - component: {fileID: 1103994880}
   - component: {fileID: 1103994879}
   - component: {fileID: 1103994881}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Shooting
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2119,7 +2151,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1541933882}
   - component: {fileID: 1541933883}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: BulletPool
   m_TagString: Untagged
   m_Icon: {fileID: 0}
