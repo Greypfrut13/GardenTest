@@ -181,7 +181,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 215df6f5cd7e4f24811f993da86ce30d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _detectionRadius: 15
+  _detectionRadius: 12
   _playerLayer:
     serializedVersion: 2
     m_Bits: 128
@@ -336,7 +336,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d86a418c30334c93b9bc6202001c79e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dropItem: {fileID: 6632233671517347375, guid: b84a2a64563bd394a900e5c9250172b4, type: 3}
+  _dropItems:
+  - {fileID: 6632233671517347375, guid: c6ce94bfb137c874d81876471dca310f, type: 3}
+  - {fileID: 6632233671517347375, guid: b84a2a64563bd394a900e5c9250172b4, type: 3}
   _enemyHealth: {fileID: 6058885046496376564}
 --- !u!1 &6058885046617119202
 GameObject:

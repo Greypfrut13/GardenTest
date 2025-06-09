@@ -1,12 +1,13 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 namespace Enemies
 {
     public class EnemyDrop : MonoBehaviour
     {
-        [SerializeField] private EnemyDropItem _dropItem;
+        [SerializeField] private EnemyDropItem[] _dropItems;
 
         [SerializeField] private EnemyHealth _enemyHealth;
 
@@ -27,7 +28,10 @@ namespace Enemies
 
         private void CreateDropInWorld()
         {
-            EnemyDropItem dropItem = Instantiate(_dropItem, transform.position, Quaternion.identity);
+            int randomIndex = Random.Range(0, _dropItems.Length);
+            EnemyDropItem dropItem = _dropItems[randomIndex];
+            
+            Instantiate(dropItem, transform.position, Quaternion.identity);
         }
     }
 }

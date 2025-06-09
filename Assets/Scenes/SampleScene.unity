@@ -59468,9 +59468,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemyPrefab: {fileID: 6058885046496376560, guid: 2f7e928dcfc9e5b49895d04d1d02581f, type: 3}
   _spawnAmount: 3
-  _minX: 15
-  _maxX: 45
-  _minY: -5
+  _minX: 5
+  _maxX: 50
+  _minY: -3
   _maxY: 5
   _exclusionRadius: 5
   _player: {fileID: 278516217}
