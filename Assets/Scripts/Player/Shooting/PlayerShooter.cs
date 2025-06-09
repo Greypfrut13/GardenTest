@@ -14,21 +14,28 @@ namespace Player.Shooting
         
         [Header("References")]
         [SerializeField] private Transform _firePoint;
-        [FormerlySerializedAs("_enemyDetector")] [SerializeField] private PlayerDetector playerDetector;
+        [SerializeField] private PlayerDetector playerDetector;
         [SerializeField] private BulletPool _bulletPool;
-        [SerializeField] private Button _shootButton;
         [SerializeField] private ParticleSystem _muzzleFlashEffect;
+        [SerializeField] private Button _shootButton;
+        
+        [Header("Ammunition")]
+        [SerializeField] private AmmoSystem _ammoSystem;
 
         private float _nextFireTime;
 
-        private void Start()
+        private void Awake()
         {
+            _ammoSystem.Init();
             _shootButton.onClick.AddListener(Shoot);
         }
-
+        
+        
         public void Shoot()
         {
-            if (Time.time < _nextFireTime || playerDetector.GetNearestEnemy() == null)
+            if (Time.time < _nextFireTime || 
+                playerDetector.GetNearestEnemy() == null || 
+                !_ammoSystem.TryConsumeAmmo())
                 return;
             
             Bullet bullet = _bulletPool.GetBullet();
