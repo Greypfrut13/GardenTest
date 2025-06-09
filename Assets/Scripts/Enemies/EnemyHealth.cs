@@ -1,11 +1,13 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 namespace Enemies
 {
     public class EnemyHealth : MonoBehaviour
     {
+        public UnityEvent OnDeath;
+        
         [Header("Settings")]
         [SerializeField] [Min(0.0f)] private float _maxHealth;
         
@@ -43,6 +45,7 @@ namespace Enemies
         
         private void Die()
         {
+            OnDeath?.Invoke();
             Destroy(gameObject);
         }
     }

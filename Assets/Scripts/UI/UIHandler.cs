@@ -20,12 +20,10 @@ namespace UI
             if (_inventoryPanel.activeInHierarchy)
             {
                 _inventoryPanel.SetActive(false);
-                Time.timeScale = 1;
             }
             else
             {
                 _inventoryPanel.SetActive(true);
-                Time.timeScale = 0;
             }
         }
     }
